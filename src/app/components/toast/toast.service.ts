@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { ToastModel } from '../../models/toast.model';
 
 @Injectable({
@@ -7,14 +7,11 @@ import { ToastModel } from '../../models/toast.model';
 })
 export class ToastService {
 
-  #messages: ToastModel[] = [];
+  $toastData = new Subject<ToastModel>();
 
-  $toastData = new BehaviorSubject<ToastModel[]>([]);
-
-  public getMessage = (): Observable<ToastModel[]> => this.$toastData?.asObservable();
+  public getMessage = (): Observable<ToastModel> => this.$toastData.asObservable();
 
   public setMessage(message: ToastModel): void {
-    this.#messages.push(message);
-    this.$toastData.next(this.#messages);
+    this.$toastData.next(message);
   }
 }

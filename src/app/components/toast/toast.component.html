@@ -1,1 +1,7 @@
-toast
+<dialog class="toast" open>
+  <div class="toast__wrapper">
+    <div class="toast__wrapper__item" *ngFor="let toast of messages">
+      {{ toast.text }}
+    </div>
+  </div>
+</dialog>

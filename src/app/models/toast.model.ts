@@ -1,4 +1,12 @@
+import { UuidLib } from "../libs/uuid.lib";
+
 export class ToastModel {
+  /**
+   * Id
+   * @param id
+   */
+  #id: string;
+
   /**
    * Text
    * @param text
@@ -11,14 +19,18 @@ export class ToastModel {
    */
   #timeLife: number;
 
-  /**
-   * Position notification
-   */
-  #position: 'top' | 'bottom' | 'left' | 'right';
-
   constructor({ text = '', timeLife = 300 }) {
+    this.#id = UuidLib.generateV4();
     this.#text = text;
     this.#timeLife = timeLife;
+  }
+
+  /**
+   * Identity toast message
+   * @returns string
+   */
+  get id(): string {
+    return this.#id;
   }
 
   /**
@@ -35,13 +47,5 @@ export class ToastModel {
    */
   get timeLife(): number {
     return this.#timeLife;
-  }
-
-  /**
-   * Position show window
-   * @returns string
-   */
-  get position(): string {
-    return this.#position;
   }
 }
