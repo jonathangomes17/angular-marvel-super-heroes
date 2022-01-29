@@ -1,0 +1,139 @@
+button.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+
+    &--is-size {
+        &-medium {
+            height: 40px;
+        }
+
+        &-small {
+            height: 32px;
+        }
+    }
+
+    &--is-padding {
+        &-32 {
+            padding: 8px 32px 8px 32px;
+        }
+
+        &-16 {
+            padding: 8px 16px 8px 16px;
+        }
+    }
+
+    &--is-font {
+        &-medium {
+            font-size: 16px;
+            font-weight: 700;
+            font-style: normal;
+            line-height: 24px;
+        }
+
+        &-small {
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 21px;
+        }
+    }
+
+    &--is-circle {
+        border-radius: 24px;
+    }
+
+    &--is-color {
+       &-default {
+           background-color: #B8BAC2;
+           color: white;
+       }
+
+       &-primary {
+            background-color: #003087;
+            color: white;
+       }
+    }
+
+    &--is-outlined {
+      &-disabled {
+        opacity: .4;
+        pointer-events: none;
+        cursor: not-allowed;
+      }
+
+        &-primary {
+            border: solid 1px #003087;
+            color: #003087;
+            background-color: white;
+            font-weight: normal;
+        }
+    }
+
+    &--is-disabled {
+      opacity: .4;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    &--is-position {
+        &-end {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+        }
+    }
+
+    &--is-margin {
+        &-right {
+            margin-right: 16px;
+        }
+
+        &-left {
+            margin-left: 16px;
+        }
+    }
+
+    &--is-animation {
+        /**
+        TODO: Está disparando quando troca de aba, ajustar
+        **/
+        // position: relative;
+        // overflow: hidden;
+
+        // &:after {
+        //     content: '';
+        //     position: absolute;
+        //     top: 50%;
+        //     left: 50%;
+        //     width: 5px;
+        //     height: 5px;
+        //     background: rgba(255, 255, 255, .5);
+        //     opacity: 0;
+        //     border-radius: 100%;
+        //     transform: scale(1, 1) translate(-50%);
+        //     transform-origin: 50% 50%;
+        // }
+
+        // &:focus:not(:active)::after {
+        //     animation: ripple 1s ease-out;
+        // }
+
+        // @keyframes ripple {
+        //     0% {
+        //         transform: scale(0, 0);
+        //         opacity: 1;
+        //     }
+        //     20% {
+        //         transform: scale(25, 25);
+        //         opacity: 1;
+        //     }
+        //     100% {
+        //         opacity: 0;
+        //         transform: scale(40, 40);
+        //     }
+        // }
+    }
+}

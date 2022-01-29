@@ -1,0 +1,94 @@
+<section class="register">
+  <div class="register__wrapper" rounded boxShadow>
+    <div class="register__wrapper__go-back" routerLink="/login">
+      <span class="register__wrapper__logo__project-name">
+        Go to back login page
+      </span>
+    </div>
+
+    <div class="login__wrapper__container">
+      <img
+        class="login__wrapper__container__image"
+        src="assets/foto1.png"
+        alt=""
+      />
+    </div>
+
+
+    <form [formGroup]="formRegister" class="form" (submit)="onRegister()">
+      <div class="form__group">
+        <input
+          type="email"
+          formControlName="fullname"
+          placeholder="Fullname"
+          [(ngModel)]="login"
+        />
+        <span
+          *ngIf="formRegister.controls['login'].errors?.['email']"
+          class="error"
+          >{{ "email" | formError }}</span
+        >
+      </div>
+
+      <div class="form__group">
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Email"
+          [(ngModel)]="login"
+        />
+        <span
+          *ngIf="formRegister.controls['login'].errors?.['email']"
+          class="error"
+          >{{ "email" | formError }}</span
+        >
+      </div>
+
+      <div class="form__group">
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+          [(ngModel)]="password"
+        />
+
+        <span
+          *ngIf="formRegister.controls['password'].touched && formRegister.controls['password'].errors?.['required']"
+          class="error"
+        >
+          {{ "required" | formError: "password" }}
+        </span>
+
+        <span
+          *ngIf="password && formRegister.controls['password'].errors?.['minlength']"
+          class="error"
+          >{{ "minlength" | formError: "3" }}</span
+        >
+      </div>
+
+			<div class="form__group">
+        <input
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="Confirm Password"
+          [(ngModel)]="confirmPassword"
+        />
+
+        <span
+          *ngIf="formRegister.controls['password'].touched && formRegister.controls['password'].errors?.['required']"
+          class="error"
+        >
+          {{ "required" | formError: "password" }}
+        </span>
+
+        <span
+          *ngIf="password && formRegister.controls['password'].errors?.['minlength']"
+          class="error"
+          >{{ "minlength" | formError: "3" }}</span
+        >
+      </div>
+
+      <button type="submit" [disabled]="!formRegister.valid">Register</button>
+    </form>
+  </div>
+</section>
