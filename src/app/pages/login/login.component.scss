@@ -54,4 +54,12 @@
       }
     }
   }
+
+  @media (max-width: 768px) {
+    .login {
+      &__wrapper {
+        width: auto;
+      }
+    }
+  }
 }
