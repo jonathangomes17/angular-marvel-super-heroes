@@ -1,0 +1,40 @@
+@import '../../variables.scss';
+
+:host {
+  .characters-result {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 1rem;
+
+    &__item {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      width: 250px;
+
+      &__photo {
+        display: flex;
+        justify-content: center;
+
+        img {
+          width: 250px;
+          width: 250px;
+          object-fit: contain;
+          background-color: $color-light-grey;
+        }
+      }
+
+      &__name {
+        font-size: 1.5rem;
+        color: $color-primary;
+      }
+
+      &__tags {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

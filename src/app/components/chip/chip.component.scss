@@ -1,0 +1,30 @@
+@import '../../variables.scss';
+
+:host {
+  .chip {
+    border: solid 1px;
+    border-radius: 80px;
+    padding: 2px 5px;
+    font-size: 0.85rem;
+
+    &--danger {
+      color: $color-danger;
+      border-color: $color-danger;
+    }
+
+    &--warning {
+      color: $color-warning;
+      border-color: $color-warning;
+    }
+
+    &--success {
+      color: $color-success;
+      border-color: $color-success;
+    }
+
+    &--default {
+      color: $color-default;
+      border-color: $color-default;
+    }
+  }
+}

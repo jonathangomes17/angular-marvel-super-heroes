@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { ChipModule } from 'src/app/components/chip/chip.module';
+import { MasterClassModule } from 'src/app/components/masterclass/masterclass.module';
+import { BoxShadowDirectiveModule } from 'src/app/directives/box-shadow/box-shadow.module';
+import { RoundedDirectiveModule } from 'src/app/directives/rounded/rounded.module';
 import { SearchPageRoutingModule } from './search-routing.module';
-
 import { SearchPageComponent } from './search.component';
 
 @NgModule({
@@ -9,7 +11,11 @@ import { SearchPageComponent } from './search.component';
     SearchPageComponent
   ],
   imports: [
-    SearchPageRoutingModule
+    SearchPageRoutingModule,
+    MasterClassModule,
+    RoundedDirectiveModule,
+    BoxShadowDirectiveModule,
+    ChipModule
   ]
 })
 export class SearchPageModule { }
