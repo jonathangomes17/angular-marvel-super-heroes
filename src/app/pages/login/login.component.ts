@@ -35,7 +35,6 @@ export class LoginPageComponent implements OnInit {
 
   onLogin(): void {
     if (this.formLogin.valid) {
-      debugger;
       const userStorage = this.userService.getUserStorage(this.login);
 
       if (!userStorage) {

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { UserModel } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-page-register',
@@ -12,24 +14,55 @@ export class RegisterPageComponent {
 
   formRegister: FormGroup;
 
-  login: string;
+  fullName: string;
+
+  email: string;
 
   password: string;
 
   confirmPassword: string;
 
-  constructor(private router: Router, private title: Title) { }
+  passwordNotMatch: boolean = false;
+
+  constructor(
+    private router: Router,
+    private title: Title,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Register | Marvel super heroes app your character finder');
 
     this.formRegister = new FormGroup({
-      login: new FormControl(this.login, [Validators.required, Validators.email]),
+      fullName: new FormControl(this.fullName, [Validators.required, Validators.minLength(2)]),
+      email: new FormControl(this.email, [Validators.required, Validators.email]),
       password: new FormControl(this.password, [Validators.required, Validators.minLength(3)]),
+      confirmPassword: new FormControl(this.confirmPassword, [Validators.required, Validators.minLength(3)]),
     });
   }
 
   onRegister() {
+    if (this.formRegister.valid) {
+      if (this.password !== this.confirmPassword) {
+        this.passwordNotMatch = true;
+        return;
+      }
 
+      const userExists = this.userService.getUserStorage(this.email) != null;
+
+      if (userExists) {
+        console.log('Usuário já existente!');
+        return;
+      }
+
+      const newUser = new UserModel({
+        email: this.email,
+        fullName: this.fullName,
+        isAuthenticated: true
+      });
+
+      this.userService.setUser(newUser);
+      this.router.navigateByUrl('/search');
+    }
   }
 }

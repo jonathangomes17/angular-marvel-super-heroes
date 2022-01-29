@@ -27,6 +27,7 @@ export class UserService {
         return null;
       }
 
+      // TODO: Encrypt password and saved in localStorage
       const user = users.find((userFinded: any) => userFinded.email === email);
 
       if (!user) {

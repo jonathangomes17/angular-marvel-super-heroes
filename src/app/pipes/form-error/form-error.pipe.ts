@@ -4,11 +4,12 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'formError'
 })
 export class FormErrorPipe implements PipeTransform {
-  
+
   errors: { [errorKey: string]: string } = {
     email: 'Email invalid',
     required: 'Field %s required',
-    minlength: 'Minimum %s characters'
+    minlength: 'Minimum %s characters',
+    passwordnotmatch: 'Passwords do not match'
   };
 
   transform(value: string, text: string = ''): string {
@@ -16,7 +17,6 @@ export class FormErrorPipe implements PipeTransform {
       let error = this.errors[value] || 'Error %s undefined'
       return error.replace('%s', text);
     }
-    
 
     return this.errors[value] || 'Error undefined';
   }

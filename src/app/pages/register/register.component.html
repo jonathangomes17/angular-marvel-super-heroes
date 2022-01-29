@@ -17,13 +17,25 @@
 
     <form [formGroup]="formRegister" class="form" (submit)="onRegister()">
       <div class="form__group">
-        <input type="email" formControlName="fullname" placeholder="Fullname" [(ngModel)]="login" />
-        <span *ngIf="formRegister.controls['login'].errors?.['email']" class="error">{{ 'email' | formError }}</span>
+        <input type="text" formControlName="fullName" placeholder="Fullname" [(ngModel)]="fullName" />
+
+        <span
+          *ngIf="formRegister.controls['fullName'].touched && formRegister.controls['fullName'].errors?.['required']"
+          class="error"
+          >{{ 'required' | formError }}</span
+        >
       </div>
 
       <div class="form__group">
-        <input type="email" formControlName="email" placeholder="Email" [(ngModel)]="login" />
-        <span *ngIf="formRegister.controls['login'].errors?.['email']" class="error">{{ 'email' | formError }}</span>
+        <input type="email" formControlName="email" placeholder="Email" [(ngModel)]="email" />
+
+        <span
+          *ngIf="formRegister.controls['email'].touched && formRegister.controls['email'].errors?.['required']"
+          class="error"
+          >{{ 'required' | formError }}</span
+        >
+
+        <span *ngIf="formRegister.controls['email'].errors?.['email']" class="error">{{ 'email' | formError }}</span>
       </div>
 
       <div class="form__group">
@@ -50,15 +62,17 @@
         />
 
         <span
-          *ngIf="formRegister.controls['password'].touched && formRegister.controls['password'].errors?.['required']"
+          *ngIf="formRegister.controls['confirmPassword'].touched && formRegister.controls['confirmPassword'].errors?.['required']"
           class="error"
         >
-          {{ 'required' | formError: 'password' }}
+          {{ 'required' | formError: 'confirm password' }}
         </span>
 
-        <span *ngIf="password && formRegister.controls['password'].errors?.['minlength']" class="error">{{
+        <span *ngIf="password && formRegister.controls['confirmPassword'].errors?.['minlength']" class="error">{{
           'minlength' | formError: '3'
         }}</span>
+
+        <span *ngIf="passwordNotMatch" class="error">{{ 'passwordnotmatch' | formError }}</span>
       </div>
 
       <button type="submit" [disabled]="!formRegister.valid">Register</button>
