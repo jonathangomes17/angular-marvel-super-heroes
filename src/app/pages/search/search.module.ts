@@ -16,6 +16,7 @@ import { SearchPageComponent } from './search.component';
     RoundedDirectiveModule,
     BoxShadowDirectiveModule,
     ChipModule
-  ]
+  ],
+  providers: []
 })
 export class SearchPageModule { }

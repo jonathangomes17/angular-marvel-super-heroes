@@ -3,6 +3,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ToastModule } from './components/toast/toast.module';
+import { HttpClientModule } from '@angular/common/http';
+import { InterceptorModule } from './interceptors/request/request.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,9 @@ import { ToastModule } from './components/toast/toast.module';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    ToastModule
+    ToastModule,
+    HttpClientModule,
+    InterceptorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
