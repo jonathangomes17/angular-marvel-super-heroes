@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Title } from '@angular/platform-browser'
 import { Router } from '@angular/router'
+import { ToastService } from 'src/app/components/toast/toast.service';
+import { ToastModel } from 'src/app/models/toast.model';
 import { UserModel } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 
@@ -21,7 +23,8 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private router: Router,
     private title: Title,
-    private userService: UserService
+    private userService: UserService,
+    private toastService: ToastService
   ) { }
 
   ngOnInit(): void {
@@ -38,7 +41,7 @@ export class LoginPageComponent implements OnInit {
       const userStorage = this.userService.getUserStorage(this.login);
 
       if (!userStorage) {
-        console.log('Usuário inexistente na base de dados!');
+        this.toastService.setMessage(new ToastModel({ text: 'User or password invalids' }));
         return;
       }
 

@@ -23,7 +23,12 @@ export class ToastComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.toastService
       .getMessage()
-      .subscribe((message: ToastModel) => this.onClose(message));
+      .subscribe((message: ToastModel) => {
+        this.messages.push(message);
+        this.cdref.detectChanges();
+
+        this.onClose(message);
+      });
   }
 
   onClose(messageRequester: ToastModel): void {

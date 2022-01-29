@@ -19,6 +19,18 @@ export class UserService {
     this.$userData.next(user);
   }
 
+  public createUser(user: UserModel): void {
+    let users = this.localStorageLib.getStorage('users');
+
+    users.push(user.serialize());
+
+    users = users?.map((user: any) => new UserModel(user));
+
+    this.localStorageLib.setStorage('users', users);
+
+    this.setUser(user);
+  }
+
   public getUserStorage(email: string): UserModel | null {
     try {
       const users = this.localStorageLib.getStorage('users');

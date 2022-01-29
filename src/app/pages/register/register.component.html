@@ -71,8 +71,6 @@
         <span *ngIf="password && formRegister.controls['confirmPassword'].errors?.['minlength']" class="error">{{
           'minlength' | formError: '3'
         }}</span>
-
-        <span *ngIf="passwordNotMatch" class="error">{{ 'passwordnotmatch' | formError }}</span>
       </div>
 
       <button type="submit" [disabled]="!formRegister.valid">Register</button>

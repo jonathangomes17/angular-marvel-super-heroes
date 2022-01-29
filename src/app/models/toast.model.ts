@@ -19,7 +19,7 @@ export class ToastModel {
    */
   #timeLife: number;
 
-  constructor({ text = '', timeLife = 300 }) {
+  constructor({ text = '', timeLife = 1000 }) {
     this.#id = UuidLib.generateV4();
     this.#text = text;
     this.#timeLife = timeLife;

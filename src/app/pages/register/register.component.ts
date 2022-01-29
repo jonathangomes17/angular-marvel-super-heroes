@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { ToastService } from 'src/app/components/toast/toast.service';
+import { ToastModel } from 'src/app/models/toast.model';
 import { UserModel } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 
@@ -22,12 +24,11 @@ export class RegisterPageComponent {
 
   confirmPassword: string;
 
-  passwordNotMatch: boolean = false;
-
   constructor(
     private router: Router,
     private title: Title,
-    private userService: UserService
+    private userService: UserService,
+    private toastService: ToastService
   ) { }
 
   ngOnInit(): void {
@@ -44,7 +45,7 @@ export class RegisterPageComponent {
   onRegister() {
     if (this.formRegister.valid) {
       if (this.password !== this.confirmPassword) {
-        this.passwordNotMatch = true;
+        this.toastService.setMessage(new ToastModel({ text: 'Passwords not match' }));
         return;
       }
 
@@ -61,7 +62,10 @@ export class RegisterPageComponent {
         isAuthenticated: true
       });
 
-      this.userService.setUser(newUser);
+      this.userService.createUser(newUser);
+
+      this.toastService.setMessage(new ToastModel({ text: `Welcome super hero! ${this.fullName}` }));
+
       this.router.navigateByUrl('/search');
     }
   }
