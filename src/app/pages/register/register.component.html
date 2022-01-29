@@ -1,72 +1,47 @@
 <section class="register">
   <div class="register__wrapper" rounded boxShadow>
     <div class="register__wrapper__go-back" routerLink="/login">
-      <span class="register__wrapper__logo__project-name">
-        Go to back login page
-      </span>
+      <svg width="14" height="18" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M13.2423 0.000312762C13.3437 0.000484432 13.4426 0.0314579 13.5259 0.0891266C13.6093 0.146795 13.6731 0.228437 13.709 0.323227C13.7449 0.418016 13.7512 0.521479 13.7269 0.619896C13.7027 0.718313 13.6491 0.807041 13.5733 0.874313L0.998305 12.0003L13.5733 23.1253C13.6642 23.2153 13.7173 23.3367 13.7216 23.4645C13.7259 23.5924 13.6812 23.717 13.5965 23.813C13.5119 23.9089 13.3937 23.9688 13.2663 23.9804C13.1389 23.992 13.0119 23.9544 12.9113 23.8753L0.335305 12.7493C0.229924 12.6553 0.145583 12.5401 0.0878039 12.4112C0.0300246 12.2824 0.0001088 12.1428 1.43988e-05 12.0015C-8.00026e-05 11.8603 0.0296499 11.7207 0.0872566 11.5917C0.144863 11.4628 0.229051 11.3475 0.334306 11.2533L12.9113 0.125313C13.0027 0.0446967 13.1204 0.000244086 13.2423 0.000312762Z"
+          fill="#C8C8C8"
+        />
+      </svg>
+
+      <span class="register__wrapper__go-back__project-name"> Go to back login page </span>
     </div>
 
-    <div class="login__wrapper__container">
-      <img
-        class="login__wrapper__container__image"
-        src="assets/foto1.png"
-        alt=""
-      />
+    <div class="register__wrapper__container">
+      <img class="register__wrapper__container__image" src="assets/foto1.png" alt="" />
     </div>
-
 
     <form [formGroup]="formRegister" class="form" (submit)="onRegister()">
       <div class="form__group">
-        <input
-          type="email"
-          formControlName="fullname"
-          placeholder="Fullname"
-          [(ngModel)]="login"
-        />
-        <span
-          *ngIf="formRegister.controls['login'].errors?.['email']"
-          class="error"
-          >{{ "email" | formError }}</span
-        >
+        <input type="email" formControlName="fullname" placeholder="Fullname" [(ngModel)]="login" />
+        <span *ngIf="formRegister.controls['login'].errors?.['email']" class="error">{{ 'email' | formError }}</span>
       </div>
 
       <div class="form__group">
-        <input
-          type="email"
-          formControlName="email"
-          placeholder="Email"
-          [(ngModel)]="login"
-        />
-        <span
-          *ngIf="formRegister.controls['login'].errors?.['email']"
-          class="error"
-          >{{ "email" | formError }}</span
-        >
+        <input type="email" formControlName="email" placeholder="Email" [(ngModel)]="login" />
+        <span *ngIf="formRegister.controls['login'].errors?.['email']" class="error">{{ 'email' | formError }}</span>
       </div>
 
       <div class="form__group">
-        <input
-          type="password"
-          formControlName="password"
-          placeholder="Password"
-          [(ngModel)]="password"
-        />
+        <input type="password" formControlName="password" placeholder="Password" [(ngModel)]="password" />
 
         <span
           *ngIf="formRegister.controls['password'].touched && formRegister.controls['password'].errors?.['required']"
           class="error"
         >
-          {{ "required" | formError: "password" }}
+          {{ 'required' | formError: 'password' }}
         </span>
 
-        <span
-          *ngIf="password && formRegister.controls['password'].errors?.['minlength']"
-          class="error"
-          >{{ "minlength" | formError: "3" }}</span
-        >
+        <span *ngIf="password && formRegister.controls['password'].errors?.['minlength']" class="error">{{
+          'minlength' | formError: '3'
+        }}</span>
       </div>
 
-			<div class="form__group">
+      <div class="form__group">
         <input
           type="password"
           formControlName="confirmPassword"
@@ -78,14 +53,12 @@
           *ngIf="formRegister.controls['password'].touched && formRegister.controls['password'].errors?.['required']"
           class="error"
         >
-          {{ "required" | formError: "password" }}
+          {{ 'required' | formError: 'password' }}
         </span>
 
-        <span
-          *ngIf="password && formRegister.controls['password'].errors?.['minlength']"
-          class="error"
-          >{{ "minlength" | formError: "3" }}</span
-        >
+        <span *ngIf="password && formRegister.controls['password'].errors?.['minlength']" class="error">{{
+          'minlength' | formError: '3'
+        }}</span>
       </div>
 
       <button type="submit" [disabled]="!formRegister.valid">Register</button>

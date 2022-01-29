@@ -1,61 +1,34 @@
 <section class="login">
   <div class="login__wrapper" rounded boxShadow>
     <div class="login__wrapper__logo">
-      <img
-        boxShadow
-        class="login__wrapper__logo__image"
-        src="assets/logo2.png"
-        alt=""
-      />
+      <img boxShadow class="login__wrapper__logo__image" src="assets/logo2.png" alt="" />
 
-      <span class="login__wrapper__logo__project-name">
-        Marvel Super Heroes App
-      </span>
+      <span class="login__wrapper__logo__project-name"> Marvel Super Heroes App </span>
     </div>
 
     <div class="login__wrapper__container">
-      <img
-        class="login__wrapper__container__image"
-        src="assets/foto1.png"
-        alt=""
-      />
+      <img class="login__wrapper__container__image" src="assets/foto1.png" alt="" />
     </div>
 
     <form [formGroup]="formLogin" class="form" (submit)="onLogin()">
       <div class="form__group">
-        <input
-          type="email"
-          formControlName="login"
-          placeholder="Email"
-          [(ngModel)]="login"
-        />
-        <span
-          *ngIf="formLogin.controls['login'].errors?.['email']"
-          class="error"
-          >{{ "email" | formError }}</span
-        >
+        <input type="email" formControlName="login" placeholder="Email" [(ngModel)]="login" />
+        <span *ngIf="formLogin.controls['login'].errors?.['email']" class="error">{{ 'email' | formError }}</span>
       </div>
 
       <div class="form__group">
-        <input
-          type="password"
-          formControlName="password"
-          placeholder="Password"
-          [(ngModel)]="password"
-        />
+        <input type="password" formControlName="password" placeholder="Password" [(ngModel)]="password" />
 
         <span
           *ngIf="formLogin.controls['password'].touched && formLogin.controls['password'].errors?.['required']"
           class="error"
         >
-          {{ "required" | formError: "password" }}
+          {{ 'required' | formError: 'password' }}
         </span>
 
-        <span
-          *ngIf="password && formLogin.controls['password'].errors?.['minlength']"
-          class="error"
-          >{{ "minlength" | formError: "3" }}</span
-        >
+        <span *ngIf="password && formLogin.controls['password'].errors?.['minlength']" class="error">{{
+          'minlength' | formError: '3'
+        }}</span>
       </div>
 
       <button type="submit" [disabled]="!formLogin.valid">Login</button>

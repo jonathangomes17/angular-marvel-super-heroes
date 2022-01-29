@@ -1,0 +1,57 @@
+{
+  // Visual
+  "breadcrumbs.enabled": true,
+  "workbench.iconTheme": "material-icon-theme",
+  // Fonte
+  "editor.tabSize": 2,
+  "editor.fontFamily": "Fira Code, Consolas",
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 26,
+  "editor.fontSize": 16,
+  // Terminal
+  "terminal.integrated.fontFamily": "Fira Code, Consolas",
+  "terminal.integrated.fontSize": 14,
+  // Editor
+  "editor.wordWrapColumn": 120,
+  "editor.wordWrap": "bounded",
+  "editor.minimap.enabled": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": true
+  },
+  "editor.formatOnSave": true,
+  "editor.formatOnType": false,
+  "editor.rulers": [80, 120],
+  "editor.renderLineHighlight": "gutter",
+  "editor.parameterHints.enabled": false,
+  // Javascript
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false
+  },
+  // Typescript
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false
+  },
+  // json
+  "[json]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": false
+  },
+  // html
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
