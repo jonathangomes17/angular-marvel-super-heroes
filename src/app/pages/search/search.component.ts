@@ -1,5 +1,8 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { CharacterResultModel } from 'src/app/models/character-result.model';
+import { CharacterModel } from 'src/app/models/character.model';
 import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
@@ -10,11 +13,18 @@ import { CharacterService } from 'src/app/services/character.service';
 })
 export class SearchPageComponent implements AfterViewInit {
 
-  charactersResult: CharacterResultModel;
+  charactersResult: CharacterResultModel = new CharacterResultModel({});
 
-  constructor(private characterService: CharacterService, private cdref: ChangeDetectorRef) { }
+  constructor(
+    private characterService: CharacterService,
+    private cdref: ChangeDetectorRef,
+    private router: Router,
+    private title: Title,
+  ) { }
 
   ngAfterViewInit(): void {
+    this.title.setTitle('Search | Marvel super heroes app your character finder');
+
     this.characterService
       .getCharacterResult()
       .subscribe((characterResult: CharacterResultModel) => {
@@ -24,5 +34,11 @@ export class SearchPageComponent implements AfterViewInit {
   }
 
   loadMore(): void {
+    // TODO:
+  }
+
+  handleDetail(character: CharacterModel): void {
+    this.characterService.setCharacterViewing(character);
+    this.router.navigateByUrl(character.slugUrl);
   }
 }

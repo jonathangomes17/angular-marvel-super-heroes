@@ -1,8 +1,12 @@
 <app-masterclass>
-  <ng-container *ngIf="charactersResult">
+  <ng-container *ngIf="charactersResult.total > 0">
     <section class="characters-result">
       <ng-container *ngIf="charactersResult">
-        <div class="characters-result__item" *ngFor="let character of charactersResult.characters">
+        <div
+          class="characters-result__item"
+          *ngFor="let character of charactersResult.characters"
+          (click)="handleDetail(character)"
+        >
           <div class="characters-result__item__photo">
             <img [src]="character.cover.url" [alt]="character.name" />
           </div>
@@ -29,4 +33,12 @@
       <button (click)="loadMore()">Load more</button>
     </section>
   </ng-container>
+
+  <section *ngIf="charactersResult.total === 0" class="empty-results">
+    <img class="empty-results__image" src="assets/captain-america.png" width="600px" height="600px" />
+    <strong class="empty-results__title">No results characters</strong>
+    <span class="empty-results__sub-title"
+      >Be happy with the result, because the whole range of characters are at your disposal</span
+    >
+  </section>
 </app-masterclass>

@@ -1,1 +1,33 @@
-Página detalhamento
+<app-masterclass isModalResult>
+  <ng-container *ngIf="character.id !== 0">
+    <section class="character-detail">
+      <div class="character-detail__header">
+        <img class="character-detail__header__thumbnail" [src]="character.cover.url" [alt]="character.name" />
+
+        <div class="character-detail__header__info">
+          <span class="character-detail__header__info__go-back" routerLink="/search">
+            <svg width="14" height="18" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.2423 0.000312762C13.3437 0.000484432 13.4426 0.0314579 13.5259 0.0891266C13.6093 0.146795 13.6731 0.228437 13.709 0.323227C13.7449 0.418016 13.7512 0.521479 13.7269 0.619896C13.7027 0.718313 13.6491 0.807041 13.5733 0.874313L0.998305 12.0003L13.5733 23.1253C13.6642 23.2153 13.7173 23.3367 13.7216 23.4645C13.7259 23.5924 13.6812 23.717 13.5965 23.813C13.5119 23.9089 13.3937 23.9688 13.2663 23.9804C13.1389 23.992 13.0119 23.9544 12.9113 23.8753L0.335305 12.7493C0.229924 12.6553 0.145583 12.5401 0.0878039 12.4112C0.0300246 12.2824 0.0001088 12.1428 1.43988e-05 12.0015C-8.00026e-05 11.8603 0.0296499 11.7207 0.0872566 11.5917C0.144863 11.4628 0.229051 11.3475 0.334306 11.2533L12.9113 0.125313C13.0027 0.0446967 13.1204 0.000244086 13.2423 0.000312762Z"
+                fill="#C8C8C8"
+              />
+            </svg>
+            Go to back search heroes
+          </span>
+
+          <span class="character-detail__header__info__fullname">{{ character.name }} </span>
+          <span class="character-detail__header__info__description">{{ character.description }} </span>
+
+          <div class="character-detail__header__info__tags">
+            <app-chip color="success" *ngIf="character.totalComics > 0">{{ character.totalComics }} comics</app-chip>
+            <app-chip color="warning" *ngIf="character.totalStories > 0">{{ character.totalStories }} stories</app-chip>
+            <app-chip color="danger" *ngIf="character.totalSeries > 0">{{ character.totalSeries }} series</app-chip>
+            <app-chip *ngIf="character.totalEvents > 0">{{ character.totalEvents }} events</app-chip>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <article>Character data</article>
+  </ng-container>
+</app-masterclass>

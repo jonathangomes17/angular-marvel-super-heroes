@@ -2,22 +2,29 @@ import { ISerialize } from 'src/app/interfaces/serialize.interface'
 import { CharacterCoverModel } from './character-cover.model'
 
 export class CharacterModel implements ISerialize {
-  #id: number
-  #name: string
-  #cover: CharacterCoverModel
-  #totalComics: number
-  #totalEvents: number
-  #totalSeries: number
-  #totalStories: number
+  #id: number;
+  #name: string;
+  #description: string;
+  #cover: CharacterCoverModel;
+  #totalComics: number;
+  #totalEvents: number;
+  #totalSeries: number;
+  #totalStories: number;
 
   //@ts-ignore
-  constructor({ id, name, thumbnail, comics, events, series, stories }) {
+  constructor({ id = 0, name = '', description = '', thumbnail = {}, comics = {}, events = {}, series = {}, stories = {} }) {
     this.#id = id;
     this.#name = name;
+    this.#description = description;
     this.#cover = new CharacterCoverModel(thumbnail);
+
+    //@ts-ignore
     this.#totalComics = comics?.available;
+    //@ts-ignore
     this.#totalEvents = events?.available;
+    //@ts-ignore
     this.#totalSeries = series?.available;
+    //@ts-ignore
     this.#totalStories = stories?.available;
   }
 
@@ -27,6 +34,10 @@ export class CharacterModel implements ISerialize {
 
   get name(): string {
     return this.#name;
+  }
+
+  get description(): string {
+    return this.#description;
   }
 
   get cover(): CharacterCoverModel {
@@ -47,6 +58,25 @@ export class CharacterModel implements ISerialize {
 
   get totalStories(): number {
     return this.#totalStories;
+  }
+
+  get slugUrl(): string {
+    let name = 'noname';
+
+    try {
+      name = this.#name
+        .toLowerCase()
+        .trim()
+        .replace(' ', '-')
+        .replace(' ', '-')
+        .replace(' ', '-')
+        .replace('(', '')
+        .replace(')', '');
+    } catch (e) {
+      console.error('do not mount url character', this.#name);
+    }
+
+    return `search/${name}-${this.id}/detail`
   }
 
   serialize(): object {
