@@ -21,4 +21,17 @@
       color: $color-primary;
     }
   }
+
+  @media (max-width: 768px) {
+    .logo {
+      &__image {
+        width: 30px;
+        height: 30px;
+      }
+
+      &__project-name {
+        font-size: 1rem;
+      }
+    }
+  }
 }

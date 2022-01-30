@@ -26,6 +26,7 @@ export class DetailPageComponent implements AfterViewInit {
 
     if (this.character.id > 0) {
       this.title.setTitle(`${this.character.name} | Marvel super heroes app your character finder`);
+      return;
     }
 
     this.route.params.subscribe(params => {
@@ -37,6 +38,7 @@ export class DetailPageComponent implements AfterViewInit {
   getCharacterById(characterId: number): void {
     this.marvelService.getCharactersById(characterId).subscribe((response) => {
       this.character = response;
+      this.title.setTitle(`${this.character.name} | Marvel super heroes app your character finder`);
     });
   }
 }

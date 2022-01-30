@@ -71,7 +71,8 @@ export class CharacterModel implements ISerialize {
         .replace(' ', '-')
         .replace(' ', '-')
         .replace('(', '')
-        .replace(')', '');
+        .replace(')', '')
+        .replace('/', '-');
     } catch (e) {
       console.error('do not mount url character', this.#name);
     }
