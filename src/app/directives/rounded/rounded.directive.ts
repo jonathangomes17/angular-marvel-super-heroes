@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core'
 
 @Directive({
-  selector: '[rounded]',
+  selector: '[appRounded]',
 })
 export class RoundedDirective implements OnInit {
 

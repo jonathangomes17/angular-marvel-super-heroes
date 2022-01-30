@@ -1,7 +1,7 @@
-import { Directive, ElementRef, OnInit } from '@angular/core'
+import { Directive, ElementRef } from '@angular/core'
 
 @Directive({
-  selector: '[boxShadow]',
+  selector: '[appBoxShadow]',
 })
 export class BoxShadowDirective {
   constructor(private el: ElementRef) {
