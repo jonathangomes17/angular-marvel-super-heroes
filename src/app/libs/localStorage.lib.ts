@@ -30,4 +30,13 @@ export class LocalStorageLib {
       console.error('Permission denied for searching in localstorage', key, e);
     }
   }
+
+  public removeStorage(key: string): void {
+    try {
+      //@ts-ignore
+      return window.localStorage.removeItem(key);
+    } catch (e) {
+      console.error('Permission denied for removing in localstorage', key, e);
+    }
+  }
 }

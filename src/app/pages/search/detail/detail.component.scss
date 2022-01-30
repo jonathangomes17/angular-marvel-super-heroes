@@ -16,6 +16,8 @@
         min-width: 400px;
         background: $color-light-grey;
         border-radius: 50%;
+        object-fit: cover;
+        object-position: top center;
       }
 
       &__info {
@@ -47,6 +49,45 @@
         &__tags {
           display: flex;
           gap: 5px;
+        }
+      }
+    }
+  }
+
+  ::ng-deep p {
+    margin: 0;
+  }
+
+  @media (min-width: 375px) and (max-width: 768px) {
+    .character-detail {
+      &__header {
+        padding: 0;
+        height: auto;
+        flex-direction: column;
+
+        &__thumbnail {
+          height: 250px;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 0%;
+          object-position: top center;
+        }
+
+        &__info {
+          gap: 0.5rem;
+          width: 100%;
+          padding-bottom: 1rem;
+
+          &__fullname {
+            font-size: 2rem;
+          }
+
+          &__fullname,
+          &__description,
+          &__tags,
+          &__go-back {
+            padding: 0 1rem;
+          }
         }
       }
     }

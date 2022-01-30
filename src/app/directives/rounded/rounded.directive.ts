@@ -1,13 +1,15 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit } from '@angular/core'
 
 @Directive({
-    selector: '[rounded]',
+  selector: '[rounded]',
 })
-export class RoundedDirective {
+export class RoundedDirective implements OnInit {
 
-    @Input() borderRadius: string = '100px';
+  @Input() borderRadius: string = '100px'
 
-    constructor(private el: ElementRef) {
-        this.el.nativeElement.style.borderRadius = this.borderRadius;
-     }
+  constructor(private el: ElementRef) { }
+
+  ngOnInit(): void {
+    this.el.nativeElement.style.borderRadius = this.borderRadius
+  }
 }

@@ -16,7 +16,7 @@
           </span>
 
           <span class="character-detail__header__info__fullname">{{ character.name }} </span>
-          <span class="character-detail__header__info__description">{{ character.description }} </span>
+          <div class="character-detail__header__info__description" [innerHTML]="character.description"></div>
 
           <div class="character-detail__header__info__tags">
             <app-chip color="success" *ngIf="character.totalComics > 0">{{ character.totalComics }} comics</app-chip>
@@ -27,7 +27,5 @@
         </div>
       </div>
     </section>
-
-    <article>Character data</article>
   </ng-container>
 </app-masterclass>

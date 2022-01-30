@@ -1,6 +1,7 @@
 <div class="masterclass">
   <header class="masterclass__header">
     <app-logo></app-logo>
+
     <input
       boxShadow
       rounded
@@ -10,7 +11,8 @@
       [(ngModel)]="globalSearch"
       (keyup)="handleSearch(globalSearch)"
     />
-    <div>Logoff</div>
+
+    <span class="masterclass__header__logoff" (click)="handleLogoff()">Logoff</span>
   </header>
   <ng-content></ng-content>
 </div>

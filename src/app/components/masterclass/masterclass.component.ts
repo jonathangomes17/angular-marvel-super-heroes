@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { LocalStorageLib } from 'src/app/libs/localStorage.lib';
 import { CharacterService } from 'src/app/services/character.service';
 import { MarvelService } from 'src/app/services/marvel.service';
 
@@ -15,7 +17,9 @@ export class MasterClassComponent {
 
   constructor(
     private marvelService: MarvelService,
-    private characterService: CharacterService
+    private characterService: CharacterService,
+    private localStorageLib: LocalStorageLib,
+    private router: Router
   ) { }
 
   handleSearch(nameStartsWith: string) {
@@ -35,5 +39,10 @@ export class MasterClassComponent {
     this.marvelService
       .getCharacters(nameStartsWith)
       .subscribe((response: any) => this.characterService.setCharacterResult(response));
+  }
+
+  handleLogoff() {
+    this.localStorageLib.removeStorage('user');
+    this.router.navigateByUrl('/login');
   }
 }

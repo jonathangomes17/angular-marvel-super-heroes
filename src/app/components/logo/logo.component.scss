@@ -22,15 +22,10 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 375px) and (max-width: 768px) {
     .logo {
-      &__image {
-        width: 30px;
-        height: 30px;
-      }
-
       &__project-name {
-        font-size: 1rem;
+        display: none;
       }
     }
   }
