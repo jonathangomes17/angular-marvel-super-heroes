@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CharacterResultModel } from '../models/character-result.model';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class CharacterService {
 
   // constructor(private localStorageLib: LocalStorageLib) { }
 
-  public getCharacterResult = (): CharacterResultModel => this.$characterData?.value;
+  public getCharacterResult = (): Observable<CharacterResultModel> => this.$characterData.asObservable();
 
   public setCharacterResult(characterResult: CharacterResultModel): void {
     this.$characterData.next(characterResult);

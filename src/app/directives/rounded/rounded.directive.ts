@@ -5,7 +5,7 @@ import { Directive, ElementRef, Input } from '@angular/core';
 })
 export class RoundedDirective {
 
-    @Input() borderRadius: string = '.5rem';
+    @Input() borderRadius: string = '100px';
 
     constructor(private el: ElementRef) {
         this.el.nativeElement.style.borderRadius = this.borderRadius;

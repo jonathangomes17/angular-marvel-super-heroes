@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { CharacterResultModel } from 'src/app/models/character-result.model';
-import { MarvelService } from 'src/app/services/marvel.service';
+import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
   selector: 'app-page-search',
@@ -12,13 +12,15 @@ export class SearchPageComponent implements AfterViewInit {
 
   charactersResult: CharacterResultModel;
 
-  constructor(private marvelService: MarvelService, private cdref: ChangeDetectorRef) { }
+  constructor(private characterService: CharacterService, private cdref: ChangeDetectorRef) { }
 
   ngAfterViewInit(): void {
-    this.marvelService.getCharacters('Spider').subscribe((response: any) => {
-      this.charactersResult = response;
-      this.cdref.detectChanges();
-    });
+    this.characterService
+      .getCharacterResult()
+      .subscribe((characterResult: CharacterResultModel) => {
+        this.charactersResult = characterResult;
+        this.cdref.detectChanges();
+    })
   }
 
   loadMore(): void {

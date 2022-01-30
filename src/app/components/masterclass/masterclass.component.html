@@ -7,6 +7,8 @@
       class="masterclass__header__global-search"
       type="text"
       placeholder="Search by first name for you character"
+      [(ngModel)]="globalSearch"
+      (keyup)="handleSearch(globalSearch)"
     />
     <div>Logoff</div>
   </header>

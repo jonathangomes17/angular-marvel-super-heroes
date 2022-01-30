@@ -13,10 +13,12 @@
             </span>
 
             <div class="characters-result__item__content__tags">
-              <app-chip color="success">{{ character.totalComics }} comics</app-chip>
-              <app-chip color="warning">{{ character.totalStories }} stories</app-chip>
-              <app-chip color="danger">{{ character.totalSeries }} series</app-chip>
-              <app-chip>{{ character.totalEvents }} events</app-chip>
+              <app-chip color="success" *ngIf="character.totalComics > 0">{{ character.totalComics }} comics</app-chip>
+              <app-chip color="warning" *ngIf="character.totalStories > 0"
+                >{{ character.totalStories }} stories</app-chip
+              >
+              <app-chip color="danger" *ngIf="character.totalSeries > 0">{{ character.totalSeries }} series</app-chip>
+              <app-chip *ngIf="character.totalEvents > 0">{{ character.totalEvents }} events</app-chip>
             </div>
           </div>
         </div>
