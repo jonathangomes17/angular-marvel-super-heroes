@@ -1,18 +1,30 @@
 import { ISerialize } from 'src/app/interfaces/serialize.interface';
 
 export class CharacterCoverModel implements ISerialize {
-  #cover: string;
+  #path: string;
+  #extension: string;
 
   constructor({ path = '', extension = '' }) {
-    this.#cover = `${path}.${extension}`;
+    this.#path = path;
+    this.#extension = extension;
   }
 
-  get cover(): string {
-    return this.#cover;
+  get path(): string {
+    return this.#path;
+  }
+
+  get extension(): string {
+    return this.#extension;
+  }
+
+  get url(): string {
+    return `${this.path}.${this.extension}`;
   }
 
   serialize(): object {
     return {
+      path: this.#path,
+      extension: this.#extension
     }
   }
 }

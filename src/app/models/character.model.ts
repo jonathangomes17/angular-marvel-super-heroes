@@ -15,10 +15,10 @@ export class CharacterModel implements ISerialize {
     this.#id = id;
     this.#name = name;
     this.#cover = new CharacterCoverModel(thumbnail);
-    this.#totalComics = comics?.returned;
-    this.#totalEvents = events?.returned;
-    this.#totalSeries = series?.returned;
-    this.#totalStories = stories?.returned;
+    this.#totalComics = comics?.available;
+    this.#totalEvents = events?.available;
+    this.#totalSeries = series?.available;
+    this.#totalStories = stories?.available;
   }
 
   get id(): number {

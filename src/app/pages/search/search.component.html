@@ -1,20 +1,30 @@
 <app-masterclass>
-  <section class="characters-result">
-    <div class="characters-result__item">
-      <div class="characters-result__item__photo">
-        <img src="http://i.annihil.us/u/prod/marvel/i/mg/e/03/5317713c9e746.jpg" alt="" />
-      </div>
+  <ng-container *ngIf="charactersResult">
+    <section class="characters-result">
+      <ng-container *ngIf="charactersResult">
+        <div class="characters-result__item" *ngFor="let character of charactersResult.characters">
+          <div class="characters-result__item__photo">
+            <img [src]="character.cover.url" [alt]="character.name" />
+          </div>
 
-      <div class="characters-result__item__content">
-        <span class="characters-result__item__content__character-name">Spider-Man (1602)</span>
+          <div class="characters-result__item__content">
+            <span class="characters-result__item__content__character-name">
+              {{ character.name }}
+            </span>
 
-        <div class="characters-result__item__content__tags">
-          <app-chip color="success">10 movies</app-chip>
-          <app-chip color="warning">10 stories</app-chip>
-          <app-chip color="danger">10 comics</app-chip>
-          <app-chip>10 events</app-chip>
+            <div class="characters-result__item__content__tags">
+              <app-chip color="success">{{ character.totalComics }} comics</app-chip>
+              <app-chip color="warning">{{ character.totalStories }} stories</app-chip>
+              <app-chip color="danger">{{ character.totalSeries }} series</app-chip>
+              <app-chip>{{ character.totalEvents }} events</app-chip>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </ng-container>
+    </section>
+
+    <section class="load-more" *ngIf="charactersResult.total > charactersResult.count">
+      <button (click)="loadMore()">Load more</button>
+    </section>
+  </ng-container>
 </app-masterclass>

@@ -15,15 +15,12 @@ export class SearchPageComponent implements AfterViewInit {
   constructor(private marvelService: MarvelService, private cdref: ChangeDetectorRef) { }
 
   ngAfterViewInit(): void {
-    this.marvelService.getCharacters('Spider Man').subscribe((response: any) => {
-      this.charactersResult = new CharacterResultModel({
-        total: response?.total,
-        count: response?.count,
-        offset: response?.offset,
-        characters: response?.data?.results
-      });
-
+    this.marvelService.getCharacters('Spider').subscribe((response: any) => {
+      this.charactersResult = response;
       this.cdref.detectChanges();
     });
+  }
+
+  loadMore(): void {
   }
 }

@@ -16,7 +16,7 @@ export class MarvelService {
 
     return this.http
       .get('characters', { params: { nameStartsWith } })
-      .pipe(map((response: any) => new CharacterResultModel(response)));
+      .pipe(map((response: any) => new CharacterResultModel(response?.data)));
   }
 
   public getCharactersById(characterId: string): Observable<any[]> {

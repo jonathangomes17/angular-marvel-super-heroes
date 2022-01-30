@@ -25,10 +25,11 @@
         justify-content: center;
 
         img {
-          width: 250px;
-          width: 250px;
-          object-fit: contain;
+          width: 200px;
+          height: 200px;
+          object-fit: cover;
           object-position: top center;
+          border-radius: 50%;
           background-color: $color-light-grey;
         }
       }
@@ -49,6 +50,19 @@
           flex-wrap: wrap;
           gap: 5px;
         }
+      }
+    }
+  }
+
+  .load-more {
+    display: flex;
+    justify-content: center;
+
+    ::ng-deep {
+      button {
+        height: 30px;
+        margin-bottom: 1rem;
+        font-size: 14px;
       }
     }
   }

@@ -11,12 +11,12 @@ export class CharacterResultModel implements ISerialize {
     total = 0,
     count = 0,
     offset = 0,
-    characters = [],
+    results = [],
   }) {
     this.#total = total;
     this.#count = count;
     this.#offset = offset;
-    this.#characters = characters?.map(character => new CharacterModel(character));
+    this.#characters = results?.map(result => new CharacterModel(result));
   }
 
   get total(): number {

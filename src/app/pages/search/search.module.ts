@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ChipModule } from 'src/app/components/chip/chip.module';
 import { MasterClassModule } from 'src/app/components/masterclass/masterclass.module';
@@ -15,7 +16,8 @@ import { SearchPageComponent } from './search.component';
     MasterClassModule,
     RoundedDirectiveModule,
     BoxShadowDirectiveModule,
-    ChipModule
+    ChipModule,
+    CommonModule
   ],
   providers: []
 })
