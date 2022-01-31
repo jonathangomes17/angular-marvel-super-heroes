@@ -1,27 +1,95 @@
-# Test
+# Marvel Super Heroes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
+> Application responsible for searching for Marvel superheroes
 
-## Development server
+[![Maintainability](https://api.codeclimate.com/v1/badges/3dff969717d4fcb3c57e/maintainability)](https://codeclimate.com/github/jonathangomes17/angular-marvel-super-heroes/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/3dff969717d4fcb3c57e/test_coverage)](https://codeclimate.com/github/jonathangomes17/angular-marvel-super-heroes/test_coverage)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# **Table of Contents**
 
-## Code scaffolding
+<img align="right" srcset="https://imgur.com/dUDRgFF.jpeg" src="https://imgur.com/dUDRgFF" width="200px;" />
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<!--ts-->
 
-## Build
+- [MarvelSuperHeroesApp](#marvel-super-heroes-app)
+_ [Table of contents](#table-of-contents)
+_ [Objective](#objective)
+_ [Requirements](#requirements)
+_ [Resources](#resources)
+_ [Desired Features](#desired-features)
+_ [Application Cloud](#application-cloud)
+\_ [Front-End](#front-end)
+\_ [Contributors](#contributors)
+<!--te-->
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Objective
 
-## Running unit tests
+- Prove clean code architecture
+- Don't make use of libs
+- Search characters with a friendly interface
+- Reusable and optimized code
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Requirements
 
-## Running end-to-end tests
+- Node 16.\*
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Resources
 
-## Further help
+- AngularJS 13
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  - Directives (\directives)
+  - Interceptors (\interceptors)
+  - Interfaces (\interfaces)
+  - Local Libs (\libs)
+  - Models (\models)
+  - Components for Pages (\pages)
+  - Presentation components (\components)
+  - Pipes (\pipes)
+  - Services (\services)
+
+- TypeScript
+- SASS
+- Prettier
+- Eslint
+
+## Desired Features
+
+- AngularJS 13
+
+  - Guards (\guards) - Public and private routes
+  - Enums (\enums) -
+    Facilitate code understanding and organization
+  - Resolvers (\resolvers) - All routes validate if user session has expired
+  - Unit tests for all components
+  - Create component Tabs
+  - Using component tabs in page detail superhero, and to develop comics, series stories and events linked to the researched character
+
+## Application Cloud
+
+Host url: ""
+
+## Front-End
+
+Executing this project locally
+
+### Starting project
+
+```bash
+npm run start
+```
+
+### Watching changes
+
+```bash
+npm run watch
+```
+
+### Generate dist project for production
+
+```bash
+npm run build
+```
+
+## Contributors
+
+1. [Jonathan Alves Gomes](https://github.com/jonathangomes17)
