@@ -56,6 +56,7 @@
 
 - AngularJS 13
 
+  - Load more characters for pagination with scrolling
   - Guards (\guards) - Public and private routes
   - Enums (\enums) -
     Facilitate code understanding and organization
