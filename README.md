@@ -7,20 +7,20 @@
 
 # **Table of Contents**
 
-<img align="right" srcset="https://imgur.com/dUDRgFF.jpeg" src="https://imgur.com/dUDRgFF" width="200px;" />
+<img align="right" srcset="https://imgur.com/dUDRgFF.jpeg" src="https://imgur.com/dUDRgFF.jpeg" width="200px;" />
 
 <!--ts-->
 
 - [MarvelSuperHeroesApp](#marvel-super-heroes-app)
-_ [Table of contents](#table-of-contents)
-_ [Objective](#objective)
-_ [Requirements](#requirements)
-_ [Resources](#resources)
-_ [Desired Features](#desired-features)
-_ [Application Cloud](#application-cloud)
-\_ [Front-End](#front-end)
-\_ [Contributors](#contributors)
-<!--te-->
+  - [Table of contents](#table-of-contents)
+  - [Objective](#objective)
+  - [Requirements](#requirements)
+  - [Resources](#resources)
+  - [Desired Features](#desired-features)
+  - [Application Cloud](#application-cloud)
+  - [Front-End](#front-end)
+  - [Contributors](#contributors)
+  <!--te-->
 
 ## Objective
 
