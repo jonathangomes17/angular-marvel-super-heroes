@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "marvel-super-heroes-app": {
+    "test": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -55,9 +55,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all",
-              "sourceMap": true,
-              "optimization": true
+              "outputHashing": "all"
             },
             "development": {
               "buildOptimizer": false,
@@ -118,7 +116,7 @@
       }
     }
   },
-  "defaultProject": "marvel-super-heroes-app",
+  "defaultProject": "test",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }

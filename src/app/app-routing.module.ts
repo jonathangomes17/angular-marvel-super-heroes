@@ -15,6 +15,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/search/search.module').then(m => m.SearchPageModule)
   },
   {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
     path: '**',
     pathMatch: 'full',
     loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundPageModule)
